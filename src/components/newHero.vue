@@ -75,30 +75,20 @@
             },
 
             save: function () {
-                var superhero = this.name;
-                var team = this.team;
-                var alter = this.alterEgo;
-                var firstApparance = this.firstApparance;
-                var carac = this.heroCaracs;
-                var img = this.imgLink;
 
-
-                var newHero = {
-                    "superhero": superhero,
-                    "publisher":team,
-                    "alter_ego":alter,
-                    "first_appearance":firstApparance,
-                    "characters":carac,
-                    "img":img
+                var hero = {
+                    superhero : this.name,
+                    team : this.team,
+                    alter : this.alterEgo,
+                    firstApparance : this.firstApparance,
+                    carac :this.heroCaracs,
+                    img  :this.imgLink,
+                    index : 'none',
                 };
 
-                if (team === "Marvel Comics"){
-                    this.$Marvel.push(newHero);
-                }
-                else{
-                    this.$Dc.push(newHero);
-                }
-                alert("Votre héros a bien été ajouté !");
+
+
+                this.$store.commit('save',hero)
             }
         }
 

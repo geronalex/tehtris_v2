@@ -26,18 +26,23 @@
         name: 'ChoixEquipe',
 
         methods: {
+
+
             showMarvel: function (){
+
               var  marvel = document.getElementById('marvel');
-                if (marvel.style.display === "none") {
+
+                if (marvel.style.display === "none" || marvel.style.display === "") {
+
                     marvel.style.display = "inline-block";
                 } else {
                     marvel.style.display = "none";
                 }
             },
-
+            //Affiche/cache la liste dc
             showDC: function (){
                 var  DC = document.getElementById('DC');
-                if (DC.style.display === "none") {
+                if (DC.style.display === "none" || DC.style.display === "") {
                     DC.style.display = "inline-block";
                 } else {
                     DC.style.display = "none";

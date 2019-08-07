@@ -45,14 +45,10 @@
 
         name: 'fichePerso',
         created: function () {
-            var tab = this.$Marvel.concat(this.$Dc)
 
-            for (var i = 0; i < tab.length; i++) {
-                if (tab[i].superhero === this.$route.params.id) {
-                    this._data.fiche = tab[i]
-                    this._data.carac = tab[i].characters.split(',')
-                }
-            }
+           this.$store.commit('generateFicheHero',this.$route.params.id);
+           this._data.fiche = this.$store.state.resultFichePerso.fiche;
+           this._data.carac = this.$store.state.resultFichePerso.carac;
         }
 
     }

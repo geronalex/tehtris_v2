@@ -58,11 +58,6 @@
             }
         },
 
-
-        data() {
-            return {
-            }
-        },
         computed: {
             cardLayout() {
                 const vm = this;
@@ -78,20 +73,13 @@
             },
         },  methods: {
             deleteHero: function (hero) {
-                var tab = this.$Marvel;
 
-                for (var i = 0; i < tab.length; i++){
+                var superhero = {
+                  name : hero,
+                  team : "marvel"
+                };
 
-                    if (tab[i].superhero == hero){
-                        if ( confirm( "Voulez vous vraiment supprmier le héros ?" ) ) {
-                            tab.splice(i, 1);
-                        } else {
-
-                        }
-
-                    }
-
-                }
+                this.$store.commit('deleteHero',superhero)
 
             }
 

@@ -22,9 +22,9 @@
     export default {
         components: {DcList,
         },
-        data () {
-            return {
-                users: this.$Dc
+        computed:{
+            users(){
+                return this.$store.getters.getDc;
             }
         }
     }

@@ -1,3 +1,4 @@
+
 <template>
     <div class="name-card">
         <v-card color="teal" ref="card" :dark="dark" >
@@ -75,15 +76,13 @@
             },
         },  methods: {
             deleteHero: function (hero) {
-                var tab = this.$Dc;
 
-                for (var i = 0; i < tab.length; i++){
+                var superhero = {
+                    name : hero,
+                    team : "dc",
+                };
 
-                    if (tab[i].superhero == hero){
-                        tab.splice(i, 1);
-                    }
-
-                }
+                this.$store.commit('deleteHero',superhero);
 
             }
 

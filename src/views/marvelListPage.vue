@@ -28,9 +28,10 @@
     export default {
         components: {MarvelList,
         },
-        data () {
-            return {
-                users: this.$Marvel
+
+        computed:{
+            users(){
+                return this.$store.getters.getMarvel;
             }
         }
     }

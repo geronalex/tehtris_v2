@@ -68,53 +68,35 @@
         methods: {
             save : function(){
 
-                var superhero = this.name;
-                var team = this.team;
-                var alter = this.alterEgo;
-                var firstApparance = this.firstApparance;
-                var carac = this.heroCaracs;
-                var img = this.imgLink;
-
-
-                var newHero = {
-                    "superhero": superhero,
-                    "publisher":team,
-                    "alter_ego":alter,
-                    "first_appearance":firstApparance,
-                    "characters":carac,
-                    "img":img
+                var hero = {
+                    superhero : this.name,
+                    team : this.team,
+                    alter : this.alterEgo,
+                    firstApparance : this.firstApparance,
+                    carac :this.heroCaracs,
+                    img  :this.imgLink,
+                    index : this._data.i,
                 };
 
 
-                if (team === "Marvel Comics"){
-
-                    this.$Marvel[this._data.i] = newHero;
-                }
-                else{
-                    console.log(newHero);
-                    console.log(this._data.i - 10);
-                    this.$Dc[this._data.i- 10] = newHero;
-                }
-                console.log(this.$Dc);
-                alert('Done !');
+                this.$store.commit('save',hero)
 
             }
         },
 
         created: function () {
-            var tab = this.$Marvel.concat(this.$Dc)
 
-            for (var i = 0; i < tab.length; i++) {
-                if (tab[i].superhero === this.$route.params.id) {
-                    this._data.i = i
-                    this.team = tab[i].publisher
-                    this.name = tab[i].superhero
-                    this.firstApparance = tab[i].first_appearance
-                    this.alterEgo = tab[i].alter_ego
-                    this.heroCaracs = tab[i].characters
-                    this.imgLink = tab[i].img
-                }
-            }
+            this.$store.commit('generateFicheHero',this.$route.params.id);
+
+            this._data.i = this.$store.state.resultFichePerso.index;
+            this.team = this.$store.state.resultFichePerso.fiche.publisher;
+            this.name = this.$store.state.resultFichePerso.fiche.superhero;
+            this.firstApparance = this.$store.state.resultFichePerso.fiche.first_appearance;
+            this.alterEgo = this.$store.state.resultFichePerso.fiche.alter_ego;
+            this.heroCaracs = this.$store.state.resultFichePerso.fiche.characters;
+            this.imgLink = this.$store.state.resultFichePerso.fiche.img;
+
+
         }
     }
 </script>
