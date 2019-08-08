@@ -82,7 +82,7 @@ export const store = new Vuex.Store({
 
             }
             else{
-                if(hero.index){
+                if(hero.index !="none"){
                     state.dc[hero.index - state.marvel.length] = newHero;
                     addOrEdit ="edit";
                 }else{
