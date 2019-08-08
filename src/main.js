@@ -1,5 +1,5 @@
+// eslint-disable-next-line no-empty
 import Vue from 'vue'
-import App from './App.vue'
 import routingView from './views/routingView'
 import router from './router'
 import vuetify from './plugins/vuetify';
@@ -9,8 +9,8 @@ import 'vuetify/dist/vuetify.min.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import { store } from './store';
 
-Vue.config.productionTip = false
-Vue.use(VueI18n)
+Vue.config.productionTip = false;
+Vue.use(VueI18n);
 
 
 
@@ -21,4 +21,4 @@ new Vue({
   vuetify,
   i18n,
   render: h => h(routingView)
-}).$mount('#app')
+}).$mount('#app');

@@ -6,7 +6,7 @@ import Router from 'vue-router'
 import App from './App.vue'
 
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
